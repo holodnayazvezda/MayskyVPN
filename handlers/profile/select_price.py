@@ -7,6 +7,7 @@ from data.config import PRICES_IN_RUBLES, PRICES_IN_STARS
 from handlers.bot_info import BotInfo
 from handlers.states.profile_state import ProfileState
 from utils.messages.messages_sender import try_edit_or_send_message
+from utils.text_workers import get_text_and_format_it
 from utils.users.users_data import UsersData
 
 
@@ -20,13 +21,13 @@ async def choose_sum_of_payment(call: types.CallbackQuery, state: FSMContext, bo
         await state.set_state(ProfileState.price_in_rubles_is_selected)
         suffix = '₽'
         callback_data_prefix = 'top_up_in_rubles:'
-        message_text = f'Выберите сумму пополнения в рублях {suffix}:'
+        message_text = get_text_and_format_it('./data/message_texts/select_price_in_rubbles.txt', suffix)
         prices_dataset = PRICES_IN_RUBLES
     else:
         await state.set_state(ProfileState.price_in_stars_is_selected)
         suffix = '⭐️'
         callback_data_prefix = 'top_up_in_stars:'
-        message_text = f'Выберите сумму пополнения в звёздах {suffix}:'
+        message_text = get_text_and_format_it('./data/message_texts/select_price_in_stars.txt', suffix)
         prices_dataset = PRICES_IN_STARS
 
 
