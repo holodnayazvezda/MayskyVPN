@@ -22,10 +22,10 @@ async def confirm_payment(call: types.CallbackQuery, state: FSMContext, bot_inst
     balance_rubles, balance_stars = get_rub_balance(call.from_user.id), get_star_balance(call.from_user.id)
 
     if price_rubles > balance_rubles and price_stars > balance_stars:
-        callback_text = (
-            '❗️ У вас недостаточно средств для оплаты выбранного тарифа.'
-            '\n\n'
-            ' 💳 Пожалуйста, пополните баланс одним из способов в личном кабинете.'
+        callback_text = get_text_and_format_it(
+            './data/message_texts/insufficient_balance.txt',
+            price_rubles, price_stars,
+            balance_rubles, balance_stars
         )
         await call.answer(callback_text, show_alert=True)
         return

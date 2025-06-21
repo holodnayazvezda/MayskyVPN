@@ -7,6 +7,7 @@ from data.config import INBOUNDS_DATA
 from handlers.bot_info import BotInfo
 from handlers.states.connection_state import ConnectionState
 from utils.messages.messages_sender import try_edit_or_send_message
+from utils.text_workers import get_text_and_format_it
 from utils.users.users_data import UsersData
 
 
@@ -24,7 +25,11 @@ async def choose_tariff(call: types.CallbackQuery, state: FSMContext, bot_instan
     markup = reply_markup_builder.as_markup()
 
     message_id = messages_data.get('message_with_markup_id', None)
-    message_text = '💠 Выберите тариф для подключения:'
+    current_bot = await bot_instance.bot.get_me()
+    message_text = get_text_and_format_it(
+        './data/message_texts/choose_tariff.txt',
+        current_bot.username
+    )
 
     message_id = await try_edit_or_send_message(bot=bot_instance.bot,
                                                     chat_id=call.message.chat.id,

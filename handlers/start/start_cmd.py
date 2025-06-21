@@ -58,8 +58,11 @@ async def start_cmd_processor(
     markup_builder.adjust(1)
     markup = markup_builder.as_markup(resize_keyboard=True)
 
-
-    message_text = get_text_and_format_it('./data/message_texts/welcome.txt', message.from_user.first_name)
+    current_bot = await bot_instance.bot.get_me()
+    message_text = get_text_and_format_it(
+        './data/message_texts/welcome.txt',
+        message.from_user.first_name, current_bot.username
+    )
 
     await send_message(
         bot=bot_instance.bot,
