@@ -21,10 +21,11 @@ async def try_edit_or_send_message(bot: Bot, chat_id: int, text: str, message_id
     try:
         if message_id:
             x = await bot.edit_message_text(chat_id=chat_id, message_id=message_id, text=cut_the_message_text(text),
-                                            reply_markup=reply_markup, parse_mode=parse_mode)
+                                            reply_markup=reply_markup, parse_mode=parse_mode,
+                                            disable_web_page_preview=True)
         else:
             x = await bot.send_message(chat_id=chat_id, text=cut_the_message_text(text), reply_markup=reply_markup,
-                                       parse_mode = parse_mode)
+                                       parse_mode = parse_mode, disable_web_page_preview=True)
         return x.message_id
     except Exception as e:
         if "can't parse entities" in str(e).lower():
@@ -32,7 +33,7 @@ async def try_edit_or_send_message(bot: Bot, chat_id: int, text: str, message_id
         try:
             await safe_delete_message(bot, chat_id, message_id)
             x = await bot.send_message(chat_id=chat_id, text=cut_the_message_text(text), reply_markup=reply_markup,
-                                       parse_mode=parse_mode)
+                                       parse_mode=parse_mode, disable_web_page_preview=True)
             return x.message_id
         except Exception:
             pass
@@ -45,7 +46,7 @@ async def send_message(bot: Bot, chat_id: int, text: str, message_id: int = None
     await safe_delete_message(bot, chat_id, message_id)
     try:
         x = await bot.send_message(chat_id=chat_id, text=cut_the_message_text(text), reply_markup=reply_markup,
-                                   parse_mode=parse_mode)
+                                   parse_mode=parse_mode, disable_web_page_preview=True)
         return x.message_id
     except TelegramBadRequest as e:
         if "can't parse entities" in str(e).lower():
@@ -104,7 +105,8 @@ def send_message_via_telebot(bot_telebot: TeleBot, chat_id: int, text: str, mess
         x = bot_telebot.send_message(
             chat_id=chat_id, text=cut_the_message_text(text),
             reply_markup=reply_markup, parse_mode=parse_mode,
-            reply_parameters=tb_types.ReplyParameters(message_id=reply_to_message_id) if reply_to_message_id else None
+            reply_parameters=tb_types.ReplyParameters(message_id=reply_to_message_id) if reply_to_message_id else None,
+            disable_web_page_preview=True
         )
         return x.message_id
     except Exception as e:
