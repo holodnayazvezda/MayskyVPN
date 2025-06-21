@@ -1,0 +1,14 @@
+ℹ️ Инструкция по настройке VPN для устройств *{}*:
+
+
+1. Перейдите в раздел [Мое подключение](https://t.me/{}?start=connection) и скопируйте ключ подключения (`нажав на него`)
+
+2. Скачайте приложение hiddify: [deb](https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-Debian-x64.deb) — [rpm](https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-rpm-x64.rpm) - [AppImage](https://github.com/hiddify/hiddify-next/releases/download/v2.0.5/Hiddify-Linux-x64.AppImage) и установить его
+
+3. Откройте приложение hiddify в нижнем меню перейдите в раздел *Главная*
+
+4. В правом верхнем углу нажмите на значок *⊕* и в открывшемся меню выберите *Добавить из буфера обмена*
+
+5. Готово! Нажмите на кнопку в центре экрана и покоряйте просторы интернета!
+
+ _Если после нажатия на "Добавить из буфера обмена" возникает ошибка_ *не удалось добавить профиль*, _скопируйте еще раз ключ из раздела_ [Мое подключение](https://t.me/{}?start=connection) _и попробуйте еще раз._

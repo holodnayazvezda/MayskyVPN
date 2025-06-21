@@ -21,8 +21,10 @@ async def send_instruction_for_selected_os(
         message_text_filename = './data/message_texts/manuals/iphone-ipad-macos.txt'
     elif call.data == 'android':
         message_text_filename = './data/message_texts/manuals/android.txt'
-    else:
+    elif call.data == 'windows':
         message_text_filename = './data/message_texts/manuals/windows.txt'
+    else:
+        message_text_filename = './data/message_texts/manuals/linux.txt'
 
     markup_builder = keyboard.InlineKeyboardBuilder()
     markup_builder.button(text='◀️ Назад', callback_data='manual_section_starter')

@@ -23,6 +23,7 @@ async def manual_section_starter(
     markup_builder.button(text='📱 IOS / iPadOS / 💻 MacOS', callback_data='apple')
     markup_builder.button(text='🤖 Android', callback_data='android')
     markup_builder.button(text='🖥 Windows', callback_data='windows')
+    markup_builder.button(text='🐧 Linux', callback_data='linux')
     markup_builder.adjust(1)
     markup = markup_builder.as_markup()
 
