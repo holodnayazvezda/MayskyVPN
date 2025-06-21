@@ -126,7 +126,7 @@ async def main():
     """
     print(f'{len(TOKENS)} bot(s) connected to DanyVPN engine')
     tasks = []
-    for token in TOKENS:
+    for token in TEST_TOKENS:
         task = asyncio.create_task(bot_init(token))
         tasks.append(task)
     await asyncio.gather(*tasks)

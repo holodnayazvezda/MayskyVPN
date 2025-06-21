@@ -1,6 +1,7 @@
 from aiogram import types
 from aiogram.utils import keyboard
 from aiogram.fsm.context import FSMContext
+from aiogram.enums.parse_mode import ParseMode
 
 from data.config import START_BUTTONS, STARS_FOR_REFERRAL
 from handlers.back_to_main_menu_message import send_back_to_main_menu_message
@@ -69,7 +70,7 @@ async def start_cmd_processor(
         chat_id=message.chat.id,
         text=message_text,
         reply_markup=markup,
-        parse_mode="markdown"
+        parse_mode=ParseMode.MARKDOWN
     )
 
 

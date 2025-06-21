@@ -36,7 +36,7 @@ TEST_TOKENS = [
 BACK_TO_MAIN_MENU_BUTTON_TEXT = '↩️ Назад в главное меню'
 START_BUTTONS = ['📶 Мое подключение', '👤 Личный кабинет', 'ℹ️ Инструкция по использованию']
 
-STARS_FOR_REFERRAL = 5
+STARS_FOR_REFERRAL = 20
 
 INBOUNDS_DATA = {
     '1_1': {'remark': '1 IP 1 месяц', 'price_rubles': 100, 'price_stars': 80},
