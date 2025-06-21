@@ -1,0 +1,9 @@
+requests
+aiogram~=3.17.0
+requests~=2.32.3
+pyTelegramBotAPI~=4.26.0
+yoomoney
+py3xui
+redis
+apscheduler
+dotenv
