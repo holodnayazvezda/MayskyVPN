@@ -25,7 +25,10 @@ AIOGRAM_REDIS_STORAGE = RedisStorage.from_url(
 # Бот токены
 TOKENS = [
     os.getenv("BOT_MAIN_TOKEN_1"),
-    os.getenv("BOT_MAIN_TOKEN_2")
+    os.getenv("BOT_MAIN_TOKEN_2"),
+    os.getenv("BOT_MAIN_TOKEN_3"),
+    os.getenv("BOT_MAIN_TOKEN_4"),
+    os.getenv("BOT_MAIN_TOKEN_5")
 ]
 
 TEST_TOKENS = [
