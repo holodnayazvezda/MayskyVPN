@@ -39,6 +39,7 @@ TEST_TOKENS = [
 BACK_TO_MAIN_MENU_BUTTON_TEXT = '↩️ Назад в главное меню'
 START_BUTTONS = ['📶 Мое подключение', '👤 Личный кабинет', 'ℹ️ Инструкция по использованию']
 
+TRIAL_DURATION = 14
 STARS_FOR_REFERRAL = 20
 
 INBOUNDS_DATA = {

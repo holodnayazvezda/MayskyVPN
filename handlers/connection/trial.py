@@ -3,6 +3,7 @@ from datetime import datetime
 from aiogram import types
 from aiogram.fsm.context import FSMContext
 
+from data import TRIAL_DURATION
 from handlers.bot_info import BotInfo
 from handlers.connection.starter import connection_section_starter
 from utils.users.trial_users_worker import remember_users_trial
@@ -18,7 +19,7 @@ async def generate_trial_config(call: types.CallbackQuery, state: FSMContext, bo
     connection_data = users_data.connection_data
 
     trial_inbound_id = await get_inbound_id('Пробный период')
-    expiry_time = (int(datetime.now().timestamp()) + 60 * 60 * 24 * 3) * 1000  # формат в милисекундах
+    expiry_time = (int(datetime.now().timestamp()) + 60 * 60 * 24 * TRIAL_DURATION) * 1000  # формат в милисекундах
     user_uuid = await create_user(
         trial_inbound_id, call.from_user.username, call.from_user.id,
         expiry_time=expiry_time, limit_ip=1
