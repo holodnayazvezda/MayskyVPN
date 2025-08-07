@@ -11,10 +11,6 @@ X_UI_PANEL_PATH = os.getenv("X_UI_PANEL_PATH")
 X_UI_PANEL_USERNAME = os.getenv("X_UI_PANEL_USERNAME")
 X_UI_PANEL_PASSWORD = os.getenv("X_UI_PANEL_PASSWORD")
 
-# Yoomoney
-PAYMENTS_YOOMONEY_TOKEN = os.getenv("PAYMENTS_YOOMONEY_TOKEN")
-PAYMENTS_YOOMONEY_RECEIVER = os.getenv("PAYMENTS_YOOMONEY_RECEIVER")
-
 # Redis
 REDIS_URL = os.getenv("REDIS_URL")
 AIOGRAM_REDIS_STORAGE = RedisStorage.from_url(
@@ -30,6 +26,14 @@ TOKENS = [
     os.getenv("BOT_MAIN_TOKEN_4"),
     os.getenv("BOT_MAIN_TOKEN_5")
 ]
+
+PAYMENT_TOKENS = {
+    os.getenv("BOT_MAIN_TOKEN_1"): os.getenv("BOT_PAYMENT_TOKEN_1"),
+    os.getenv("BOT_MAIN_TOKEN_2"): '',
+    os.getenv("BOT_MAIN_TOKEN_3"): '',
+    os.getenv("BOT_MAIN_TOKEN_4"): '',
+    os.getenv("BOT_MAIN_TOKEN_5"): ''
+}
 
 TEST_TOKENS = [
     os.getenv("BOT_TEST_TOKEN")

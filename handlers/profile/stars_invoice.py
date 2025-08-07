@@ -16,7 +16,6 @@ async def send_stars_invoice(call: types.CallbackQuery, state: FSMContext, bot_i
 
     await state.set_state(ProfileState.on_payment)
 
-    bot = await bot_instance.bot.get_me()
     price = int(call.data.split(':')[1])
 
     order_id = f'{call.from_user.id}-{call.data}-{dt.now()}'

@@ -20,7 +20,7 @@ from handlers.manual.starter import manual_section_starter
 from handlers.profile.rubles_invoice import send_rubles_invoice
 from handlers.profile.select_price import choose_sum_of_payment
 from handlers.profile.stars_invoice import send_stars_invoice
-from handlers.profile.stars_payment_checker import stars_success_payment_completed
+from handlers.profile.stars_payment_checker import success_payment_completed
 from handlers.profile.stars_payment_pre_checkout import pre_checkout_handler
 from handlers.profile.starter import profile_section_starter
 from handlers.start.start_buttons import process_start_buttons
@@ -100,9 +100,11 @@ async def bot_init(token: str) -> None:
     async def sum_in_stars_selection_handler(call: types.CallbackQuery, state: FSMContext) -> None:
         await send_stars_invoice(call, state, bot_instance)
 
+    dp.pre_checkout_query.register(pre_checkout_handler)
+
     @dp.message(F.successful_payment)
     async def successful_payment_handler(message: types.Message, state: FSMContext) -> None:
-       await stars_success_payment_completed(message, state)
+       await success_payment_completed(message, state)
 
     @dp.callback_query(F.data == 'manual_section_starter')
     async def back_to_manual_starter_button_handler(call: types.CallbackQuery, state: FSMContext) -> None:
@@ -111,9 +113,6 @@ async def bot_init(token: str) -> None:
     @dp.callback_query(ManualState.start)
     async def choose_os_buttons_handler(call: types.CallbackQuery, state: FSMContext) -> None:
         await send_instruction_for_selected_os(call, state, bot_instance)
-
-
-    dp.pre_checkout_query.register(pre_checkout_handler)
 
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
