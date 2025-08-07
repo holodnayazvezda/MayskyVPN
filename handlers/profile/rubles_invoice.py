@@ -7,7 +7,6 @@ from aiogram.utils import keyboard
 from data import PAYMENT_TOKENS
 from handlers.bot_info import BotInfo
 from handlers.states.profile_state import ProfileState
-from utils.payments.yookassa_data_worker import form_provider_data
 from utils.users.users_data import UsersData
 
 
@@ -37,9 +36,6 @@ async def send_rubles_invoice(call: types.CallbackQuery, state: FSMContext, bot_
         currency="RUB",
         prices=prices,
         provider_token=payment_token,
-        need_email=True,
-        send_email_to_provider=True,
-        provider_data=await form_provider_data(price),
         is_flexible=False,
         reply_markup=markup
     )).message_id
