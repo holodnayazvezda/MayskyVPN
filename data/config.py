@@ -29,10 +29,12 @@ TOKENS = [
 
 PAYMENT_TOKENS = {
     os.getenv("BOT_MAIN_TOKEN_1"): os.getenv("BOT_PAYMENT_TOKEN_1"),
-    os.getenv("BOT_MAIN_TOKEN_2"): '',
-    os.getenv("BOT_MAIN_TOKEN_3"): '',
-    os.getenv("BOT_MAIN_TOKEN_4"): '',
-    os.getenv("BOT_MAIN_TOKEN_5"): ''
+    os.getenv("BOT_MAIN_TOKEN_2"): os.getenv("BOT_PAYMENT_TOKEN_2"),
+    os.getenv("BOT_MAIN_TOKEN_3"): os.getenv("BOT_PAYMENT_TOKEN_3"),
+    os.getenv("BOT_MAIN_TOKEN_4"): os.getenv("BOT_PAYMENT_TOKEN_4"),
+    os.getenv("BOT_MAIN_TOKEN_5"): os.getenv("BOT_PAYMENT_TOKEN_5"),
+
+    os.getenv("BOT_TEST_TOKEN"): os.getenv("BOT_TEST_PAYMENT_TOKEN")
 }
 
 TEST_TOKENS = [
